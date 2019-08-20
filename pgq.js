@@ -29,8 +29,8 @@ const getRunById = (request, response) => {
 }
 
 const createRun = (request, response) => {
-    const id = parseInt(request.params.id)
-    const {title, date, avg_pace, distance, duration, est_calories, location, notes } = request.body
+    // const id = parseInt(request.params.id)
+    const {id, title, date, avg_pace, distance, duration, est_calories, location, notes } = request.body
 
     pool.query('INSERT INTO running_history (id, title, date, avg_pace, distance, duration, est_calories, location, notes) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)', 
     [id, title, date, avg_pace, distance, duration, est_calories, location, notes], (error, results) => {
@@ -58,7 +58,7 @@ const updateRun = (request, response) => {
 }
 
 const deleteRun = (request, response) => {
-    // const id = parseInt(request.params.id)
+    const id = parseInt(request.params.id)
 
     pool.query('DELETE FROM running_history WHERE id = $1', [id], (error, result) => {
         if(error) {
