@@ -57,7 +57,7 @@ const updateRun = (request, response) => {
 }
 
 const deleteRun = (request, response) => {
-    const id = parseInt(request.params.id)
+    // const id = parseInt(request.params.id)
 
     pool.query('DELETE FROM running_history WHERE id = $1', [id], (error, result) => {
         if(error) {
