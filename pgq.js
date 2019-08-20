@@ -3,9 +3,10 @@ const pool = new Pool ({
     user: 'joseph',
     host: 'localhost',
     database: 'nikeRunningData',
-    password: 'decommer4',
+    password: '',
     port: 5432
 });
+
 
 const getRuns = (request, response) => {
     pool.query('SELECT * FROM running_history ORDER BY id ASC', (error, results) => {
