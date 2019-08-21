@@ -2,7 +2,7 @@
   "name": "runningdatadpi",
   "version": "1.0.0",
   "description": "My first original api. It's simple, and isn't quite complete yet, but it works. 10 years of running data in an api. My 1st goal was just to funnel my postgres data to be viewed in the browser in json. I know I'll look back and laugh at how trivial this is, but for my frist time, I'm pretty excited!",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
