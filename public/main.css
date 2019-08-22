@@ -1,0 +1,41 @@
+body {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    color: rgb(80, 80, 80);
+}
+
+.father {
+    width: 900px;
+}
+
+h1 {
+    text-align: center;
+}
+
+li {
+    list-style: none;
+    padding: 10px;
+    transition: backround-color, color, .3s ease-in-out;
+}
+
+li:hover {
+    background-color: rgb(255, 251, 218);
+    color: rgb(43, 102, 129);
+}
+
+li:nth-child(even) {
+    background-color: rgb(195, 222, 245);
+}
+
+li:nth-child(even):hover {
+    background-color: rgb(255, 251, 218);
+    color: rgb(43, 102, 129);
+}
+
+.list{
+    border-radius: 10px;
+    background-color: rgb(216, 234, 252);
+    padding-right: 30px;
+}

@@ -4,12 +4,15 @@ const db = require('./models/pgqueries');
 const app = express();
 const port = 3000;
 
+app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/views'));
+
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/', (req, res) => {
-    res.sendFile('/Users/joseph/Documents/codingProjects/NodeJS/running-data-api/index.html')
+    res.sendFile('index.html')
   })
   
   app.get('/runs', db.getRuns)

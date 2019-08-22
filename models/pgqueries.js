@@ -2,8 +2,19 @@ const { Pool, Client } = require('pg')
 const connectionString = 'postgresql://joseph@localhost:5432/nikeRunningData'
 const pool = new Pool({connectionString: connectionString})
 
+const createRun = (request, response) => {
+    const runId = request.body.id
+    const {id, title, date, avg_pace, distance, duration, est_calories, location, notes } = request.body
+
+    pool.query('INSERT INTO running_history (id, title, date, avg_pace, distance, duration, est_calories, location, notes) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)', 
+    [id, title, date, avg_pace, distance, duration, est_calories, location, notes], (err, results) => {
+        
+        response.status(201).send(`Run added with Id: ${runId}`)
+    })
+}
+
 const getRuns = (request, response) => {
-    pool.query('SELECT * FROM running_history ORDER BY id DESC', (error, results) => {
+    pool.query('SELECT * FROM running_history ORDER BY id DESC LIMIT 100', (error, results) => {
         if(error) {
             throw error;
         }
@@ -22,19 +33,6 @@ const getRunById = (request, response) => {
     })
 }
 
-const createRun = (request, response) => {
-    const runId = request.body.id
-    const {id, title, date, avg_pace, distance, duration, est_calories, location, notes } = request.body
-
-    pool.query('INSERT INTO running_history (id, title, date, avg_pace, distance, duration, est_calories, location, notes) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)', 
-    [id, title, date, avg_pace, distance, duration, est_calories, location, notes], (error, results) => {
-        if (error) {
-            throw error
-        }
-        response.status(201).send(`Run added with Id: ${runId}`)
-    })
-}
-
 const updateRun = (request, response) => {
     const runId = request.body.id
     const { id, title, date, avg_pace, distance, duration, est_calories, location, notes } = request.body
@@ -46,7 +44,7 @@ const updateRun = (request, response) => {
             if(error) {
                 throw error
             }
-            response.status(200).send(`Run modified with Id: ${runId}`)
+            response.status(200).send(`Run modified with Id: ${runId}`);
         }
     )
 }
