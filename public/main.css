@@ -1,41 +1,47 @@
-body {
-    display: flex;
-    justify-content: center;
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+* {
     margin: 0;
     padding: 0;
-    color: rgb(80, 80, 80);
 }
 
-.father {
-    width: 900px;
-}
-
-h1 {
+body {
     text-align: center;
+    color: rgb(80, 80, 80);
+    font-family: 'Open Sans', sans-serif;
 }
 
-li {
-    list-style: none;
+.listContent {
+    /* border: 1px solid red; */
+    display: grid;
+    grid-template-columns:400px 400px;
+    justify-content: center;
+}
+
+.id {
+    font-size: 1.5rem;
+}
+
+.runContainer {
+    /* border: 1px solid red; */
+    text-align: left;
+    max-width: 400px;
     padding: 10px;
-    transition: backround-color, color, .3s ease-in-out;
+    margin: 10px;
 }
 
-li:hover {
-    background-color: rgb(255, 251, 218);
-    color: rgb(43, 102, 129);
-}
-
-li:nth-child(even) {
-    background-color: rgb(195, 222, 245);
-}
-
-li:nth-child(even):hover {
-    background-color: rgb(255, 251, 218);
-    color: rgb(43, 102, 129);
-}
-
-.list{
+.run {
+    /* border: 1px solid blue; */
+    background-color: dodgerblue;
+    box-shadow: 1px 1px 2px #000;
+    color: white;
     border-radius: 10px;
-    background-color: rgb(216, 234, 252);
-    padding: 10px 40px 10px 0;
+    font-size: 1.2rem;
+    padding: 20px;
 }
+
+.run:hover {
+    box-shadow: 1px 1px 50px dodgerblue;
+}
+
+

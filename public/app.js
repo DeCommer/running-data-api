@@ -5,15 +5,33 @@ $(document).ready(() => {
 
 const displayRuns = (runs) => {
     runs.forEach((run) => {
-        let runList = $(`<li> 
-        ${run.id} 
-        Title: ${run.title}, 
-        Avg Pace: ${run.avg_pace}, 
-        Dist: ${run.distance}, 
-        Duration: ${run.duration}, 
-        Calories Burned: ${run.est_calories}, 
-        Location: ${run.location}, 
-         </li>`);
+        let runList = $(
+        `<div class="runContainer"> 
+
+        <div class="id">${run.id}</div>
+            <div class="run">            
+                <div class="title">
+                Title: ${run.title},
+                </div>
+                <div class="pace">
+                Avg Pace: ${run.avg_pace},
+                </div> 
+                <div class="distance">
+                Dist: ${run.distance}, 
+                </div>
+                <div class="duration">
+                Duration: ${run.duration},
+                </div> 
+                <div class="calsBurned">
+                Calories Burned: ${run.est_calories},
+                </div> 
+                <div class="location">
+                Location: ${run.location},
+                </div>
+
+            </div> 
+         </div>
+         `);
         $('.listContent').append(runList);
     });
 }
